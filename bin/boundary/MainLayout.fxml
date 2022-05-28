@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" styleClass="bodybg" stylesheets="@application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.EnterController">
+   <top>
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="225.0" fitWidth="320.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@logo.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="bodybg" stylesheets="@application.css" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="454.0" layoutY="160.0" styleClass="secTitel" stylesheets="@application.css" text="user" />
+            <ComboBox fx:id="selectUserCombo" layoutX="513.0" layoutY="153.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="39.0" prefWidth="186.0" />
+            <Button layoutX="480.0" layoutY="250.0" mnemonicParsing="false" onAction="#enter" styleClass="Button" stylesheets="@application.css" text="enter" />
+            <Label fx:id="empty" layoutX="235.0" layoutY="174.0" text="To enter the program you must choose a user" textFill="RED" visible="false" />
+            <Label alignment="CENTER" layoutX="472.0" layoutY="63.0" styleClass="mainTitel" stylesheets="@application.css" text="MANAGER-FLY" underline="true" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

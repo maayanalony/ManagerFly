@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="700.0" maxWidth="1100.0" prefHeight="700.0" prefWidth="1100.0" styleClass="bodybg" stylesheets="@application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.WelcomeController_Panel">
+   <center>
+      <AnchorPane maxHeight="700.0" maxWidth="1100.0" prefHeight="700.0" prefWidth="1100.0">
+         <children>
+            <VBox layoutX="98.0" layoutY="12.0" prefHeight="532.0" prefWidth="900.0" AnchorPane.bottomAnchor="14.0" AnchorPane.topAnchor="12.0">
+               <children>
+                  <Label styleClass="secTitel" stylesheets="@application.css" text="new flights:" underline="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="listNewFlights" prefHeight="182.0" prefWidth="900.0" />
+                  <Label styleClass="secTitel" stylesheets="@application.css" text="Flights that were updated today:" underline="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="listUpdatedToday" prefHeight="185.0" prefWidth="900.0" />
+                  <Label styleClass="secTitel" stylesheets="@application.css" text="Flights that have 14 days or less left and the assignment to them has not been completed:" underline="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="listNeedToSchedule" prefHeight="157.0" prefWidth="900.0" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <Label alignment="CENTER" prefHeight="43.0" prefWidth="127.0" styleClass="mainTitel" stylesheets="@application.css" text="Welcome" underline="true" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+   </top>
+</BorderPane>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="700.0" maxWidth="1100.0" prefHeight="700.0" prefWidth="1100.0" styleClass="bodybg" stylesheets="@../boundary/application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary_EmployeeManager.PanelEmployeesController">
+   <center>
+      <AnchorPane maxHeight="700.0" maxWidth="1100.0" prefHeight="700.0" prefWidth="1100.0">
+         <children>
+            <Label layoutX="98.0" layoutY="27.0" prefHeight="43.0" prefWidth="179.0" text="Search employee by ID">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="searchEmployeeID" layoutX="258.0" layoutY="27.0" prefHeight="43.0" prefWidth="269.0" promptText="Insert ID please" />
+            <Button layoutX="540.0" layoutY="27.0" mnemonicParsing="false" onAction="#searchEmployeeByID" prefHeight="43.0" prefWidth="110.0" styleClass="Button" stylesheets="@../boundary/application.css" text="Search">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="ShowAllBtn" layoutX="702.0" layoutY="27.0" mnemonicParsing="false" onAction="#showAllEmployees" prefHeight="43.0" prefWidth="166.0" styleClass="Button" stylesheets="@../boundary/application.css" text="Show All">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <VBox layoutX="98.0" layoutY="90.0" prefHeight="494.0" prefWidth="900.0" AnchorPane.bottomAnchor="14.0" AnchorPane.topAnchor="90.0">
+               <children>
+                  <Label style="-fx-text-fill: #4D3C23;" styleClass="secTitel" stylesheets="@../boundary/application.css" text="Land Attendants" underline="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="landAttendantsList" prefHeight="167.0" prefWidth="900.0" />
+                  <Label style="-fx-text-fill: #4D3C23;" styleClass="secTitel" stylesheets="@../boundary/application.css" text="Flight Attendants" underline="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="flightAttendantsList" prefHeight="167.0" prefWidth="900.0" />
+                  <Label style="-fx-text-fill: #4D3C23;" styleClass="secTitel" stylesheets="@../boundary/application.css" text="Pilots" underline="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="pilotsList" prefHeight="167.0" prefWidth="900.0" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <Label prefHeight="43.0" prefWidth="189.0" styleClass="mainTitel" stylesheets="@../boundary/application.css" text="Employees Panel" underline="true" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+   </top>
+   <bottom>
+      <VBox BorderPane.alignment="CENTER_LEFT">
+         <BorderPane.margin>
+            <Insets bottom="15.0" left="100.0" />
+         </BorderPane.margin>
+         <children>
+            <ButtonBar nodeOrientation="RIGHT_TO_LEFT">
+               <buttons>
+                  <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="110.0" styleClass="Button" stylesheets="@../boundary/application.css" text="Delete -">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#openEditEmployee" prefHeight="43.0" prefWidth="110.0" styleClass="Button" stylesheets="@../boundary/application.css" text="Edit">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#openAddEmployee" prefHeight="43.0" prefWidth="110.0" styleClass="Button" stylesheets="@../boundary/application.css" text="Add +">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </buttons>
+            </ButtonBar>
+            <ButtonBar fx:id="addButtonBar" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0">
+              <buttons>
+                <Button mnemonicParsing="false" onAction="#openAddFlightAttendant" styleClass="Button" stylesheets="@../boundary/application.css" text="Add Flight Attendant" />
+                  <Button mnemonicParsing="false" onAction="#openAddLandAttendant" prefWidth="147.0" styleClass="Button" stylesheets="@../boundary/application.css" text="Add Land Attendant" />
+                  <Button mnemonicParsing="false" onAction="#openAddPilot" styleClass="Button" stylesheets="@../boundary/application.css" text="Add Pilot" />
+              </buttons>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </ButtonBar>
+         </children>
+      </VBox>
+   </bottom>
+</BorderPane>

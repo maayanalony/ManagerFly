@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlightStatus_info>
+	<flight>
+		<flightID>1004</flightID>
+		<flightStatus>ON_TIME</flightStatus>
+	</flight>
+	<flight>
+		<flightID>1001</flightID>
+		<flightStatus>DELAYED</flightStatus>
+	</flight>
+	<flight>
+		<flightID>1111</flightID>
+		<flightStatus>ON_TIME</flightStatus>
+	</flight>
+	<flight>
+		<flightID>9999</flightID>
+		<flightStatus>CANCELLED</flightStatus>
+	</flight>
+</FlightStatus_info>

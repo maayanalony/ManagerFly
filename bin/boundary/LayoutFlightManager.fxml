@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="bodybg" stylesheets="@application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.FlightManagerController">
+   <top>
+      <VBox alignment="CENTER" styleClass="header-section" stylesheets="@application.css" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane maxHeight="200.0" maxWidth="1100.0" prefHeight="200.0" prefWidth="1100.0" stylesheets="@application.css">
+               <children>
+                  <Button alignment="CENTER" layoutY="145.0" mnemonicParsing="false" onAction="#changeUser" styleClass="Button" stylesheets="@application.css" text="Change user" />
+                  <Label fx:id="managerLab" layoutX="464.0" layoutY="113.0" prefHeight="27.0" prefWidth="202.0" styleClass="mainTitel" stylesheets="@application.css" text="Flight Manager" underline="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="93.0" fitWidth="151.0" layoutX="464.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logo.jpg" />
+                     </image>
+                     <effect>
+                        <ColorAdjust />
+                     </effect>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <MenuBar styleClass="menuBar" stylesheets="@application.css">
+              <menus>
+                <Menu mnemonicParsing="false" text="Flights">
+                  <items>
+                        <MenuItem mnemonicParsing="false" onAction="#openFlightPanel" text="Flights Panel" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                    <MenuItem mnemonicParsing="false" onAction="#openAddFlight" text="Add Flight" />
+                        <MenuItem mnemonicParsing="false" onAction="#exportToJason" text="Export data to Jason" />
+                        <MenuItem mnemonicParsing="false" onAction="#importXml" text="import flight status from xml" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="Planes">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#openPlanePanel" text="Planes Panel" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#openAddPlane" text="Add Plane" />
+                    </items>
+                  </Menu>
+                <Menu mnemonicParsing="false" text="Airports">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#openAirpoertPanel" text="Airports Panel" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="addAirportItem" mnemonicParsing="false" onAction="#openAddAirport" text="Add Airport" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </VBox>
+   </top>
+</BorderPane>

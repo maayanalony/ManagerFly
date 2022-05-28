@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FlightsReport" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bae9d6e4-9fee-42f3-8536-a52a4b48999a">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="src\control\MF_DataAdapter.xml"/>
+	<parameter name="1" class="java.lang.Integer"/>
+	<parameter name="2" class="java.sql.Date"/>
+	<parameter name="3" class="java.sql.Date"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT TblFlights.filghtID, TblFlights.depAirportID, TblAirports.country AS countryDep, TblAirports.city AS cityDep, TblFlights.arvAirportID, TblAirports_1.country AS countryArv, TblAirports_1.city AS cityArv, TblFlights.depDate, TblFlights.arvDate, TblFlights.flightStatus
+FROM TblAirports INNER JOIN ((TblFlights INNER JOIN TblAirports AS TblAirports_1 ON TblFlights.arvAirportID = TblAirports_1.airportCode) INNER JOIN qrlCountTouristClass ON TblFlights.tailNumber = qrlCountTouristClass.tailNumber) ON TblAirports.airportCode = TblFlights.depAirportID
+WHERE (((qrlCountTouristClass.CountOftailNumber)>$P{1}) AND ((TblFlights.depDate)>=$P{2} And (TblFlights.depDate)<=$P{3}) AND ((TblFlights.arvDate)>=$P{2} And (TblFlights.arvDate)<=$P{3}))
+GROUP BY TblFlights.filghtID, TblFlights.depAirportID, TblAirports.country, TblAirports.city, TblFlights.arvAirportID, TblAirports_1.country, TblAirports_1.city, TblFlights.depDate, TblFlights.arvDate, TblFlights.flightStatus
+ORDER BY TblAirports_1.country DESC , TblAirports_1.city DESC , TblFlights.depDate DESC , TblFlights.arvDate DESC;]]>
+	</queryString>
+	<field name="FILGHTID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="FILGHTID"/>
+		<property name="com.jaspersoft.studio.field.label" value="FILGHTID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<field name="DEPAIRPORTID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="DEPAIRPORTID"/>
+		<property name="com.jaspersoft.studio.field.label" value="DEPAIRPORTID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<field name="countryDep" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="country"/>
+		<property name="com.jaspersoft.studio.field.label" value="countryDep"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TblAirports"/>
+	</field>
+	<field name="cityDep" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="city"/>
+		<property name="com.jaspersoft.studio.field.label" value="cityDep"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TblAirports"/>
+	</field>
+	<field name="ARVAIRPORTID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ARVAIRPORTID"/>
+		<property name="com.jaspersoft.studio.field.label" value="ARVAIRPORTID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<field name="countryArv" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="country"/>
+		<property name="com.jaspersoft.studio.field.label" value="countryArv"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<field name="cityArv" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="city"/>
+		<property name="com.jaspersoft.studio.field.label" value="cityArv"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<field name="DEPDATE" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="DEPDATE"/>
+		<property name="com.jaspersoft.studio.field.label" value="DEPDATE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<field name="ARVDATE" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="ARVDATE"/>
+		<property name="com.jaspersoft.studio.field.label" value="ARVDATE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<field name="FLIGHTSTATUS" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="FLIGHTSTATUS"/>
+		<property name="com.jaspersoft.studio.field.label" value="FLIGHTSTATUS"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="92" splitType="Stretch">
+			<staticText>
+				<reportElement x="290" y="10" width="203" height="30" uuid="012c2a73-bb45-4923-864b-6bc17bd77d48"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Major Flight Report]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="0" y="0" width="100" height="30" uuid="208dadbe-c6c6-4880-bdfc-de2e64737c72"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="50" width="190" height="30" uuid="b983f773-6617-4119-9ba1-aa27eb48261a">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Num of seats in tourist class:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="200" y="50" width="100" height="30" uuid="b1be3b0c-b09a-4cba-a1f2-e49f0c88d677"/>
+				<textFieldExpression><![CDATA[$P{1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="306" y="50" width="54" height="30" uuid="7ef640ca-e5bc-4851-bb66-28647ba522cd">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[From:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="360" y="50" width="100" height="30" uuid="8e022b20-847d-4628-9b1e-ea667fca98fa"/>
+				<textFieldExpression><![CDATA[$P{2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="490" y="50" width="54" height="30" uuid="563b8972-1cae-4b7a-b65b-bb99f941be08">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Until:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="544" y="50" width="100" height="30" uuid="56f53472-32c6-4cf7-b17e-d8e40400ec92"/>
+				<textFieldExpression><![CDATA[$P{3}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="1" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="-2" y="30" width="80" height="30" uuid="40e61d8d-8af0-44ae-89dc-31dda8068c56">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4a99556b-7206-4650-a532-c970ea6e85f3"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FlightID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="78" y="30" width="80" height="30" uuid="a2d03ad0-e1a1-4304-896c-7db867b57eb5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="57c5a7bd-38ac-4fba-9c79-859a6c23b3b3"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DepAirport]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="158" y="30" width="80" height="30" uuid="73997f93-2bf4-4170-bac1-c9c0e5354614">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a3c67850-5ae4-4d24-9e68-5ea82bb12ccf"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[countryDep]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="238" y="30" width="80" height="30" uuid="124a3747-b96a-47c2-9753-b8ed97120440">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="869b65f0-7383-4661-b89a-e64d197398ee"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[cityDep]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="318" y="30" width="70" height="30" uuid="7e18971e-ea54-444e-82b7-f757b0465f3b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="19570c0d-690b-41ab-9ac7-01feb0d4b5be"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ArvAirport]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="388" y="30" width="80" height="30" uuid="47efeec1-d8e4-418f-8e45-1bbc8cd1fb5f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="43945133-a7ea-4fc8-946e-569aed54fb29"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[countryArv]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="468" y="30" width="80" height="30" uuid="66f11abf-bc36-4977-9b88-62772c57618a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ef22b713-f7f9-492a-8e0b-4162552844ed"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[cityArv]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="548" y="30" width="70" height="30" uuid="ded3e5ad-68b7-4ed1-9dfa-b6468fe53375">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c58c9dbe-78cd-423f-a0af-5a8956d0e7e1"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DepDate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="618" y="30" width="70" height="30" uuid="0f337738-8aba-402c-a29d-fe46fad15202">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7221fee1-08b9-4b4e-aa91-e42ac2dc9b49"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ArvDate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="690" y="30" width="88" height="30" uuid="6685acf6-b9e9-42bf-8665-a5496da9a93e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e1173dee-74b3-4f28-ac4b-575c04824eab"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="34" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="80" height="30" uuid="7075bf79-e1ee-44a9-a549-964141b10edf">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4a99556b-7206-4650-a532-c970ea6e85f3"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{FILGHTID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="-1" width="80" height="30" uuid="4bb442e8-9259-4674-b61c-577decbb2225">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="57c5a7bd-38ac-4fba-9c79-859a6c23b3b3"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{DEPAIRPORTID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="0" width="80" height="30" uuid="5fa1fb4f-066c-4fbd-8ec8-2eb4206d76de">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a3c67850-5ae4-4d24-9e68-5ea82bb12ccf"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{countryDep}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="0" width="80" height="30" uuid="c988de67-9e39-4fa9-aa00-1042620480ef">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="869b65f0-7383-4661-b89a-e64d197398ee"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{cityDep}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="320" y="0" width="70" height="30" uuid="aab27398-d7ec-4418-b9e0-4c75f121c223">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="19570c0d-690b-41ab-9ac7-01feb0d4b5be"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{ARVAIRPORTID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="0" width="90" height="30" uuid="d9dde225-95cb-4266-a8d3-68bf1e1aaf9c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="43945133-a7ea-4fc8-946e-569aed54fb29"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{countryArv}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="0" width="80" height="30" uuid="e29e674e-0b7c-4712-a064-67726b3aae7e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ef22b713-f7f9-492a-8e0b-4162552844ed"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{cityArv}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="550" y="0" width="70" height="30" uuid="59c2d0b1-b5df-4528-b468-7ea928c279dc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c58c9dbe-78cd-423f-a0af-5a8956d0e7e1"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{DEPDATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="620" y="0" width="70" height="30" uuid="5ba9ce4e-f730-47d2-bb2f-eced1188034a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7221fee1-08b9-4b4e-aa91-e42ac2dc9b49"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{ARVDATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="690" y="0" width="90" height="30" uuid="1fa25253-50e9-4207-8009-7c6aa6aa63b4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e1173dee-74b3-4f28-ac4b-575c04824eab"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{FLIGHTSTATUS}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

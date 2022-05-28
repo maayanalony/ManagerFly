@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane styleClass="bodybg" stylesheets="@../boundary/application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary_FlightManager.DataForMajorFlightsRepController">
+   <center>
+      <AnchorPane prefHeight="389.0" prefWidth="571.0">
+         <children>
+            <Label layoutX="125.0" layoutY="26.0" prefHeight="43.0" prefWidth="301.0" styleClass="mainTitel" stylesheets="@../boundary/application.css" text="Export Major Flights Report" underline="true">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="99.0" prefHeight="43.0" prefWidth="260.0" text="Number of  seats in tourist class:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="repNumSeats" layoutX="255.0" layoutY="99.0" prefHeight="43.0" prefWidth="256.0" promptText="Insert Number of  seats in tourist class: please" />
+            <Label layoutX="32.0" layoutY="159.0" prefHeight="43.0" prefWidth="51.0" text="From:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="repFrom" layoutX="83.0" layoutY="160.0" prefHeight="42.0" prefWidth="180.0" />
+            <Label layoutX="289.0" layoutY="160.0" prefHeight="43.0" prefWidth="51.0" text="Until:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="repUntil" layoutX="334.0" layoutY="160.0" prefHeight="42.0" prefWidth="180.0" />
+            <Button layoutX="206.0" layoutY="268.0" mnemonicParsing="false" onAction="#exportReport" prefHeight="42.0" prefWidth="103.0" styleClass="Button" stylesheets="@../boundary/application.css" text="Export" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

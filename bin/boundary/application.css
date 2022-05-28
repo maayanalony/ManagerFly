@@ -1,0 +1,64 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.header-section {
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
+    -fx-background-color: #A3DEED;
+    
+}
+
+/*     
+ * -fx-background-image: url("297327124.jpg");
+ * -fx-background-color: teal;
+ *  #FED8CC;
+ * #AF4744  bordo-brown
+ *	#715d3c
+ * #f0ebe6
+*/
+
+.bodybg{
+	-fx-background-color: #A3DEED;
+	-fx-max-height: 700px;
+	-fx-max-width: 1100px;
+	-fx-pref-height: 700px;
+	-fx-pref-width: 1100px;
+}
+
+.menuBar{
+	-fx-background-color: 	#c97849;
+}
+
+.menuBar:selected:top{
+	-fx-background-color: #FFC5BB;
+}
+
+.secTitel{
+	-fx-font-size: 16;
+	-fx-text-fill: #4D3C23;
+	-fx-font-weight: bold;
+}
+
+.mainTitel{
+	-fx-font-size: 22;
+	-fx-font-weight: bold;
+	-fx-text-fill: #4D3C23;
+}
+
+.image {
+	-fx-background-image: url("logo.jpg");
+	-fx-background-size: 100%, 100%;
+}
+.Button{
+	-fx-min-height: 45px;
+	-fx-pref-height: 45px;
+	-fx-pref-width: 140px;
+	-fx-background-color: #A8542A;
+	-fx-text-fill-font-size: 14;
+	-fx-text-fill: #f0ebe6;
+	
+	
+}
+
+.invalidLabel > .text{
+	-fx-fill: red;
+}

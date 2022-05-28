@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="2Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ca322348-4c1a-4a95-9c94-b5e496e5b86e">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="src\control\BigFlightRepo.xml"/>
+	<parameter name="1" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT TblAirports.country, (Count(TblFlights.filghtID)* 100/Query1.CountOfFlights) AS Expr1
+FROM Query1, TblAirports INNER JOIN (TblFlights INNER JOIN TblAirports AS TblAirports_1 ON TblFlights.arvAirportID = TblAirports_1.airportCode) ON TblAirports.airportCode = TblFlights.depAirportID
+WHERE (((Month(TblFlights.depDate))=Month(Date())) AND ((TblAirports_1.country)=$P{1}))
+GROUP BY TblAirports.country, Query1.CountOfFlights;]]>
+	</queryString>
+	<field name="country" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="country"/>
+		<property name="com.jaspersoft.studio.field.label" value="country"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="TblAirports"/>
+	</field>
+	<field name="Expr1" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="EXPR1"/>
+		<property name="com.jaspersoft.studio.field.label" value="Expr1"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="64" splitType="Stretch">
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="0" y="0" width="100" height="30" uuid="14c55413-cd0d-4840-a565-24f7dbb66cef"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="170" y="20" width="220" height="30" uuid="807b271f-9502-4da5-b337-7acfb48e32a3"/>
+				<textElement>
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Percent Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="47" splitType="Stretch">
+			<textField>
+				<reportElement x="100" y="0" width="100" height="30" uuid="ce5af55a-b807-4a2e-8e3d-ec9a4ea53038"/>
+				<textFieldExpression><![CDATA[$P{1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="d3ef598e-7c70-4496-b08b-91d5b68f6882"/>
+				<text><![CDATA[Departure country:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="2df014b6-cfd6-43df-b8cf-a7e10fd17cb4"/>
+				<text><![CDATA[Destination country]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="120" y="0" width="100" height="30" uuid="dd1c15e0-c5b7-4a53-be3b-44d2b3a21095"/>
+				<text><![CDATA[Percent]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="41" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="30" uuid="ec3f0da1-e278-4c2c-890f-1d6248839129"/>
+				<textFieldExpression><![CDATA[$F{country}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="0" width="100" height="30" uuid="a7a32d53-cbeb-4612-9214-2b15d8b99d20"/>
+				<textFieldExpression><![CDATA[$F{Expr1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" styleClass="bodybg" stylesheets="@application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.EmployeeManagerController">
+   <top>
+      <VBox alignment="CENTER" styleClass="header-section" stylesheets="@application.css" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane maxHeight="200.0" maxWidth="1100.0" prefHeight="200.0" prefWidth="1100.0">
+               <children>
+                  <Button contentDisplay="RIGHT" layoutY="154.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#changeUser" styleClass="Button" stylesheets="@application.css" text="Change user" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="434.0" layoutY="100.0" prefHeight="27.0" prefWidth="210.0" styleClass="mainTitel" stylesheets="@application.css" text="Employee Manager" underline="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="93.0" fitWidth="151.0" layoutX="464.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@logo.jpg" />
+                     </image>
+                     <effect>
+                        <ColorAdjust />
+                     </effect>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <MenuBar prefHeight="18.0" prefWidth="579.0" styleClass="menuBar" stylesheets="@application.css">
+              <menus>
+                <Menu mnemonicParsing="false" text="Employees">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#openEmployeePanel" text="Employees panel" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#openAddLandAttendant" text="Add land attendant" />
+                        <MenuItem mnemonicParsing="false" onAction="#openAddFlightAttendant" text="Add flight attendant" />
+                        <MenuItem mnemonicParsing="false" onAction="#openAddPilot" text="Add pilot" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Shifts">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#openShifts" text="Shifts panel" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Flight Scheduling">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#openFlightSch" text="Flights" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </VBox>
+   </top>
+</BorderPane>
